@@ -1,0 +1,125 @@
+[2025-12-27 14:42:30,718] INFO - Loaded 2160 rows from /home/rodrigodog/TrendCortex/data/BTCUSDT_1h_20250928_20251227.csv
+[2025-12-27 14:42:30,718] INFO - Using cached data from /home/rodrigodog/TrendCortex/data/BTCUSDT_1h_20250928_20251227.csv
+[2025-12-27 14:42:30,723] INFO - Using mock LLM mode (no API calls)
+[2025-12-27 14:42:30,723] INFO - AI Backtester initialized
+[2025-12-27 14:42:30,723] INFO - Starting AI backtest for BTCUSDT
+[2025-12-27 14:42:30,723] INFO - Using model: random_forest, LLM gate: True
+[2025-12-27 14:42:30,725] INFO - Data split: 1498 train, 643 test candles
+[2025-12-27 14:42:30,725] INFO - Training ML models...
+[2025-12-27 14:42:30,790] INFO - Prepared data: 1477 rows, 20 features
+[2025-12-27 14:42:30,790] INFO - Train set: 1033 rows
+[2025-12-27 14:42:30,790] INFO - Test set: 444 rows
+[2025-12-27 14:42:30,929] INFO - Trained Random Forest model
+[2025-12-27 14:42:31,242] INFO - Trained XGBoost model
+/home/rodrigodog/TrendCortex/.venv/lib/python3.14/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[2025-12-27 14:42:31,305] INFO - Trained Logistic Regression model
+[2025-12-27 14:42:31,382] INFO - 
+random_forest Metrics:
+[2025-12-27 14:42:31,382] INFO -   Accuracy: 0.5698
+[2025-12-27 14:42:31,382] INFO -   Precision: 0.4079
+[2025-12-27 14:42:31,382] INFO -   Recall: 0.1751
+[2025-12-27 14:42:31,382] INFO -   F1 Score: 0.2451
+[2025-12-27 14:42:31,382] INFO -   AUC: 0.5263
+[2025-12-27 14:42:31,382] INFO -   Trade Accuracy: 0.4286
+[2025-12-27 14:42:31,382] INFO -   Trades (>0.6): 21/444
+[2025-12-27 14:42:31,439] INFO - 
+xgboost Metrics:
+[2025-12-27 14:42:31,439] INFO -   Accuracy: 0.5608
+[2025-12-27 14:42:31,439] INFO -   Precision: 0.4392
+[2025-12-27 14:42:31,439] INFO -   Recall: 0.3672
+[2025-12-27 14:42:31,439] INFO -   F1 Score: 0.4000
+[2025-12-27 14:42:31,439] INFO -   AUC: 0.5353
+[2025-12-27 14:42:31,439] INFO -   Trade Accuracy: 0.4194
+[2025-12-27 14:42:31,439] INFO -   Trades (>0.6): 93/444
+[2025-12-27 14:42:31,446] INFO - 
+logistic_regression Metrics:
+[2025-12-27 14:42:31,446] INFO -   Accuracy: 0.5698
+[2025-12-27 14:42:31,446] INFO -   Precision: 0.4000
+[2025-12-27 14:42:31,446] INFO -   Recall: 0.1582
+[2025-12-27 14:42:31,446] INFO -   F1 Score: 0.2267
+[2025-12-27 14:42:31,446] INFO -   AUC: 0.5244
+[2025-12-27 14:42:31,447] INFO -   Trade Accuracy: 0.4444
+[2025-12-27 14:42:31,447] INFO -   Trades (>0.6): 27/444
+[2025-12-27 14:42:31,447] INFO - Trained 3 models successfully
+[2025-12-27 14:42:31,447] INFO - random_forest: Accuracy=0.5698, AUC=0.5263
+[2025-12-27 14:42:31,447] INFO - xgboost: Accuracy=0.5608, AUC=0.5353
+[2025-12-27 14:42:31,447] INFO - logistic_regression: Accuracy=0.5698, AUC=0.5244
+[2025-12-27 14:42:31,447] INFO - Generating predictions for 643 test candles...
+[2025-12-27 14:42:31,473] INFO - Prepared data: 623 rows, 20 features
+[2025-12-27 14:42:31,523] INFO - Running backtest loop...
+[2025-12-27 14:42:31,535] INFO - Backtest complete: 9 signals, 9 attempted, 1 executed
+Traceback (most recent call last):
+  File "/home/rodrigodog/TrendCortex/run_simple_backtest.py", line 187, in main
+    run_backtest(args.symbol, args.days, args.model)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rodrigodog/TrendCortex/run_simple_backtest.py", line 82, in run_backtest
+    backtester.save_results(results, filename)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/rodrigodog/TrendCortex/ai_strategy/ai_backtester.py", line 537, in save_results
+    output_path = Path(self.config.backtest.data_dir) / filename
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'BacktestConfig' object has no attribute 'data_dir'
+Warning: openai not installed. Install with: uv pip install openai
+================================================================================
+🚀 AI STRATEGY BACKTEST - BTCUSDT
+================================================================================
+
+📊 Fetching 90 days of data...
+✅ Loaded 2160 candles
+
+📈 Calculating indicators...
+✅ 2141 candles with indicators
+
+🤖 Running AI backtest with random_forest...
+
+================================================================================
+AI STRATEGY BACKTEST RESULTS - BTCUSDT
+================================================================================
+
+Configuration:
+  Model: random_forest
+  LLM Gate: Enabled
+  Train/Test Split: 70% / 30%
+  Train Candles: 1498
+  Test Candles: 643
+
+ML Performance:
+  Signals Generated: 9
+  Average ML Confidence: 62.99%
+
+LLM Gate:
+  Trades Evaluated: 9
+  Trades Approved: 1
+  Approval Rate: 11.11%
+  Average LLM Confidence: 75.44%
+
+Trading Performance:
+  Total Trades: 1
+  Winning Trades: 0
+  Losing Trades: 1
+  Win Rate: 0.00%
+
+Profit & Loss:
+  Total P&L: $-2.36
+  Total Return: -0.02%
+  Average P&L per Trade: $-2.36
+  Average Win: $0.00
+  Average Loss: $-2.36
+  Profit Factor: 0.00
+
+Risk Metrics:
+  Sharpe Ratio: 0.00
+  Max Drawdown: -0.02%
+
+Exit Reasons:
+  stop_loss: 1
+
+Final Capital: $9,997.64
+Initial Capital: $10,000.00
+Net Profit: $-2.36
+
+================================================================================
+
+
+❌ Error: 'BacktestConfig' object has no attribute 'data_dir'

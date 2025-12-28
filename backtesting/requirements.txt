@@ -1,0 +1,23 @@
+# Backtesting Environment Requirements
+# Install with: pip install -r requirements.txt
+
+# Core data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# HTTP requests for API calls
+requests>=2.31.0
+
+# Optional: Technical analysis library (alternative indicator calculations)
+# pandas-ta>=0.3.14b0
+
+# Optional: Visualization (for plotting equity curves, etc.)
+# matplotlib>=3.7.0
+# plotly>=5.17.0
+
+# Optional: Performance optimization
+# numba>=0.58.0
+
+# Development tools (optional)
+# jupyter>=1.0.0
+# ipython>=8.16.0

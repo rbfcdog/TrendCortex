@@ -1,0 +1,115 @@
+# Alert rules for TrendCortex monitoring
+
+groups:
+  - name: trendcortex_alerts
+    interval: 1m
+    rules:
+      # Bot availability
+      - alert: BotDown
+        expr: up{job="trendcortex"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "TrendCortex bot is down"
+          description: "Bot has been unreachable for 5 minutes"
+
+      # High error rate
+      - alert: HighErrorRate
+        expr: rate(trendcortex_errors_total[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High error rate detected"
+          description: "Error rate is {{ $value }} errors/sec over last 5 minutes"
+
+      # Too many restarts
+      - alert: FrequentRestarts
+        expr: changes(trendcortex_restart_count[1h]) > 5
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Bot restarting frequently"
+          description: "Bot has restarted {{ $value }} times in the last hour"
+
+      # High memory usage
+      - alert: HighMemoryUsage
+        expr: trendcortex_memory_usage_percent > 90
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage"
+          description: "Memory usage is {{ $value }}%"
+
+      # High CPU usage
+      - alert: HighCPUUsage
+        expr: trendcortex_cpu_usage_percent > 80
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is {{ $value }}%"
+
+      # Disk space low
+      - alert: LowDiskSpace
+        expr: trendcortex_disk_usage_percent > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low disk space"
+          description: "Disk usage is {{ $value }}%"
+
+      # No recent trades
+      - alert: NoRecentTrades
+        expr: time() - trendcortex_last_trade_timestamp > 3600
+        for: 0m
+        labels:
+          severity: info
+        annotations:
+          summary: "No trades in last hour"
+          description: "Last trade was {{ $value }}s ago"
+
+      # API errors
+      - alert: APIErrors
+        expr: rate(trendcortex_api_errors_total[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High API error rate"
+          description: "API error rate is {{ $value }} errors/sec"
+
+      # Failed AI logs
+      - alert: AILoggingFailures
+        expr: rate(trendcortex_ai_log_failures_total[10m]) > 0.02
+        for: 5m
+        labels:
+          severity: info
+        annotations:
+          summary: "AI logging failures detected"
+          description: "AI log failure rate is {{ $value }} failures/sec"
+
+      # Position size exceeded
+      - alert: LargePosition
+        expr: trendcortex_position_value_usd > 10000
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Large position detected"
+          description: "Position value is ${{ $value }}"
+
+      # Loss limit approaching
+      - alert: LossLimitApproaching
+        expr: trendcortex_daily_pnl_usd < -500
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Daily loss approaching limit"
+          description: "Daily P&L is ${{ $value }}"

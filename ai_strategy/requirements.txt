@@ -1,0 +1,27 @@
+# AI Strategy Framework - Requirements
+# Install with: uv pip install -r ai_strategy/requirements.txt
+
+# Core ML and Data Science
+scikit-learn>=1.3.0          # ML models (RF, LogReg, MLP)
+xgboost>=2.0.0               # Gradient boosting
+joblib>=1.3.0                # Model persistence
+
+# Already installed (from main project)
+# pandas>=2.1.0
+# numpy>=1.24.0
+# requests>=2.31.0
+
+# LLM Integration (Optional - uncomment when ready)
+# openai>=1.0.0              # OpenAI GPT-4 / GPT-3.5
+# anthropic>=0.7.0           # Claude API
+
+# Optional: Advanced features
+# lightgbm>=4.0.0            # Another gradient boosting library
+# catboost>=1.2.0            # Yet another boosting library
+# optuna>=3.0.0              # Hyperparameter optimization
+# shap>=0.43.0               # Model explainability
+
+# Visualization (Optional)
+# matplotlib>=3.8.0
+# seaborn>=0.13.0
+# plotly>=5.18.0

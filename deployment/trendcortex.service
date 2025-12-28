@@ -1,0 +1,32 @@
+[Unit]
+Description=TrendCortex Trading Bot
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+User=trader
+WorkingDirectory=/opt/trendcortex
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/opt/trendcortex/venv/bin/python bot_runner.py --config /opt/trendcortex/config.json
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/trendcortex/logs /opt/trendcortex/data /opt/trendcortex/models
+
+# Resource limits
+MemoryMax=2G
+CPUQuota=200%
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=trendcortex
+
+[Install]
+WantedBy=multi-user.target

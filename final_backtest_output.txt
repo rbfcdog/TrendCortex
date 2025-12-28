@@ -1,0 +1,192 @@
+[2025-12-27 14:49:55,226] INFO - Fetching fresh data for BTCUSDT 1h
+[2025-12-27 14:49:55,226] INFO - Fetching BTCUSDT 1h from 2024-12-27 to 2025-12-27
+[2025-12-27 14:49:55,642] INFO - Batch 1: Fetched 1000 candles (up to 2025-02-07 09:59:59.999000)
+[2025-12-27 14:49:56,164] INFO - Batch 2: Fetched 1000 candles (up to 2025-03-21 01:59:59.999000)
+[2025-12-27 14:49:56,631] INFO - Batch 3: Fetched 1000 candles (up to 2025-05-01 17:59:59.999000)
+[2025-12-27 14:49:57,101] INFO - Batch 4: Fetched 1000 candles (up to 2025-06-12 09:59:59.999000)
+[2025-12-27 14:49:57,578] INFO - Batch 5: Fetched 1000 candles (up to 2025-07-24 01:59:59.999000)
+[2025-12-27 14:49:58,069] INFO - Batch 6: Fetched 1000 candles (up to 2025-09-03 17:59:59.999000)
+[2025-12-27 14:49:59,047] INFO - Batch 7: Fetched 1000 candles (up to 2025-10-15 09:59:59.999000)
+[2025-12-27 14:49:59,529] INFO - Batch 8: Fetched 1000 candles (up to 2025-11-26 01:59:59.999000)
+[2025-12-27 14:50:00,000] INFO - Batch 9: Fetched 760 candles (up to 2025-12-27 17:59:59.999000)
+[2025-12-27 14:50:00,108] INFO - Successfully fetched 8760 total candles in 9 batches
+[2025-12-27 14:50:00,204] INFO - Saved 8760 rows to /home/rodrigodog/TrendCortex/data/BTCUSDT_1h_20241227_20251227.csv
+[2025-12-27 14:50:00,215] INFO - AI Backtester initialized
+[2025-12-27 14:50:00,215] INFO - Starting AI backtest for BTCUSDT
+[2025-12-27 14:50:00,215] INFO - Using model: random_forest, LLM gate: False
+[2025-12-27 14:50:00,216] INFO - Data split: 6118 train, 2622 test candles
+[2025-12-27 14:50:00,216] INFO - Training ML models...
+[2025-12-27 14:50:00,369] INFO - Prepared data: 6097 rows, 20 features
+[2025-12-27 14:50:00,370] INFO - Train set: 4267 rows
+[2025-12-27 14:50:00,370] INFO - Test set: 1830 rows
+[2025-12-27 14:50:00,521] INFO - Trained Random Forest model
+[2025-12-27 14:50:00,763] INFO - Trained XGBoost model
+/home/rodrigodog/TrendCortex/.venv/lib/python3.14/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[2025-12-27 14:50:00,791] INFO - Trained Logistic Regression model
+[2025-12-27 14:50:00,864] INFO - 
+random_forest Metrics:
+[2025-12-27 14:50:00,864] INFO -   Accuracy: 0.9863
+[2025-12-27 14:50:00,864] INFO -   Precision: 0.0000
+[2025-12-27 14:50:00,864] INFO -   Recall: 0.0000
+[2025-12-27 14:50:00,864] INFO -   F1 Score: 0.0000
+[2025-12-27 14:50:00,864] INFO -   AUC: 0.6230
+[2025-12-27 14:50:00,864] INFO -   Trade Accuracy: 0.0000
+[2025-12-27 14:50:00,865] INFO -   Trades (>0.52): 0/1830
+[2025-12-27 14:50:00,951] INFO - 
+xgboost Metrics:
+[2025-12-27 14:50:00,951] INFO -   Accuracy: 0.9863
+[2025-12-27 14:50:00,951] INFO -   Precision: 0.0000
+[2025-12-27 14:50:00,951] INFO -   Recall: 0.0000
+[2025-12-27 14:50:00,951] INFO -   F1 Score: 0.0000
+[2025-12-27 14:50:00,951] INFO -   AUC: 0.5931
+[2025-12-27 14:50:00,951] INFO -   Trade Accuracy: 0.0000
+[2025-12-27 14:50:00,951] INFO -   Trades (>0.52): 0/1830
+[2025-12-27 14:50:00,960] INFO - 
+logistic_regression Metrics:
+[2025-12-27 14:50:00,960] INFO -   Accuracy: 0.9863
+[2025-12-27 14:50:00,960] INFO -   Precision: 0.0000
+[2025-12-27 14:50:00,960] INFO -   Recall: 0.0000
+[2025-12-27 14:50:00,960] INFO -   F1 Score: 0.0000
+[2025-12-27 14:50:00,960] INFO -   AUC: 0.6812
+[2025-12-27 14:50:00,960] INFO -   Trade Accuracy: 0.0000
+[2025-12-27 14:50:00,960] INFO -   Trades (>0.52): 0/1830
+[2025-12-27 14:50:00,960] INFO - Trained 3 models successfully
+[2025-12-27 14:50:00,960] INFO - random_forest: Accuracy=0.9863, AUC=0.6230
+[2025-12-27 14:50:00,961] INFO - xgboost: Accuracy=0.9863, AUC=0.5931
+[2025-12-27 14:50:00,961] INFO - logistic_regression: Accuracy=0.9863, AUC=0.6812
+[2025-12-27 14:50:00,961] INFO - Generating predictions for 2622 test candles...
+[2025-12-27 14:50:01,035] INFO - Prepared data: 2602 rows, 20 features
+[2025-12-27 14:50:01,109] INFO - Running backtest loop...
+[2025-12-27 14:50:01,183] INFO - Backtest complete: 8 signals, 4 attempted, 4 executed
+Warning: openai not installed. Install with: uv pip install openai
+
+⚠️  NOTE: This will take longer due to 365 days of data
+Estimated time: 2-5 minutes
+
+================================================================================
+🚀 FINAL REFINED STRATEGY - WITH ENTRY CONFIRMATION
+================================================================================
+
+✅ All Improvements Applied:
+  1. Training data: 365 days (was 90)
+  2. Prediction threshold: 0.52 (was 0.60)
+  3. Entry confirmation: Wait for breakout
+  4. Volume features: Added OBV, volume ratio
+  5. Stop loss: 2.0x ATR
+  6. Position size: 2%
+  7. Better labels: Predict next 5 candles
+
+📊 Fetching 365 days of 1h data...
+✅ Loaded 8760 candles
+
+📈 Calculating indicators...
+📊 Adding volume features...
+✅ 8740 candles with all indicators
+
+🤖 Running backtest with entry confirmation...
+⏰ This may take a few minutes with more data...
+
+================================================================================
+AI STRATEGY BACKTEST RESULTS - BTCUSDT
+================================================================================
+
+Configuration:
+  Model: random_forest
+  LLM Gate: Disabled
+  Train/Test Split: 70% / 30%
+  Train Candles: 6118
+  Test Candles: 2622
+
+ML Performance:
+  Signals Generated: 8
+  Average ML Confidence: 57.41%
+
+Trading Performance:
+  Total Trades: 4
+  Winning Trades: 1
+  Losing Trades: 3
+  Win Rate: 25.00%
+
+Profit & Loss:
+  Total P&L: $-12.84
+  Total Return: -0.13%
+  Average P&L per Trade: $-3.21
+  Average Win: $10.11
+  Average Loss: $-7.65
+  Profit Factor: 0.44
+
+Risk Metrics:
+  Sharpe Ratio: -6.41
+  Max Drawdown: -0.23%
+
+Exit Reasons:
+  stop_loss: 3
+  take_profit: 1
+
+Final Capital: $9,987.16
+Initial Capital: $10,000.00
+Net Profit: $-12.84
+
+================================================================================
+
+================================================================================
+📊 FINAL RESULTS ANALYSIS
+================================================================================
+
+🔄 Evolution Across All Rounds:
+  Round 1 (1h, 90d):   AUC=0.526, WR= 0%, Trades=1
+  Round 2 (1h, 180d):  AUC=0.657, WR=22%, Trades=18
+  Round 3 (4h, 180d):  AUC=0.543, WR=27%, Trades=11
+  Round 4 (1h, 365d):  AUC=0.623, WR=25%, Trades=4
+
+🤖 ML Model Quality:
+  Accuracy: 98.63%
+  AUC: 0.6230
+  👍 AUC > 0.60 - Good predictive power
+
+📈 Trading Performance:
+  Total Trades: 4
+  Win Rate: 25.00%
+  Profit Factor: 0.44
+  Sharpe Ratio: -6.41
+  Total Return: -0.13%
+  Max Drawdown: -0.23%
+
+⚠️  Need more trades: 4 (target: 50+)
+⚠️  Win rate < 30%: 25.00%
+⚠️  Profit factor < 1.0: 0.44 (losing)
+
+🎯 Strategy Assessment:
+  ⚠️  NEEDS WORK - Not viable yet
+  → Review fundamental approach
+  → Consider different prediction horizons
+  → May need completely different features
+
+💰 Risk/Reward Metrics:
+  Average Win: $10.11
+  Average Loss: $7.65
+  Win/Loss Ratio: 1.32:1
+  📈 Positive R/R ratio
+  Breakeven Win Rate: 43.08%
+  ⚠️  Below breakeven by 18.08%
+
+================================================================================
+✅ FINAL BACKTEST COMPLETE
+================================================================================
+
+📊 Key Results:
+  Win Rate: 25.00%
+  Profit Factor: 0.44
+  Total Return: -0.13%
+  Trades: 4
+
+⚠️  Still needs improvement
+
+🔧 Next Steps:
+1. Implement entry confirmation (critical)
+2. Change label strategy (predict 5-10 candles ahead)
+3. Add more volume/momentum features
+4. Try ensemble model (combine RF + XGBoost)
+
+📁 Results saved to output files

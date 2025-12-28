@@ -1,0 +1,165 @@
+================================================================================
+📊 BACKTEST RESULTS SUMMARY REPORT
+================================================================================
+
+Generated: 2025-12-27 15:06:10
+Total Backtests Analyzed: 4
+
+
+================================================================================
+Round 1: Round 1 - 1h 90 days
+================================================================================
+
+📈 Trading Performance:
+  • Total Trades: 1
+  • Win Rate: 0.00%
+  • Profit Factor: 0.00
+  • Total Return: -0.02%
+  • Sharpe Ratio: 0.00
+  • Max Drawdown: -0.02%
+
+💰 Trade Statistics:
+  • Average Win: $0.00
+  • Average Loss: $-2.36
+  • Win/Loss Ratio: 0.00:1
+
+🤖 ML Model Performance:
+  • random_forest:
+    - AUC: 0.5263
+    - Accuracy: 56.98%
+
+🚪 Exit Reasons:
+  • stop_loss: 1 (100.0%)
+
+================================================================================
+Round 2: Round 2 - 1h 180 days
+================================================================================
+
+📈 Trading Performance:
+  • Total Trades: 18
+  • Win Rate: 22.22%
+  • Profit Factor: 0.77
+  • Total Return: -0.18%
+  • Sharpe Ratio: -1.78
+  • Max Drawdown: -0.72%
+
+💰 Trade Statistics:
+  • Average Win: $15.29
+  • Average Loss: $-5.65
+  • Win/Loss Ratio: 2.71:1
+
+🤖 ML Model Performance:
+  • random_forest:
+    - AUC: 0.6567
+    - Accuracy: 89.97%
+  • xgboost:
+    - AUC: 0.6265
+    - Accuracy: 91.42%
+  • logistic_regression:
+    - AUC: 0.6255
+    - Accuracy: 90.75%
+
+🚪 Exit Reasons:
+  • take_profit: 4 (22.2%)
+  • stop_loss: 14 (77.8%)
+
+📡 Signal Statistics:
+  • Signals Generated: 20
+  • Trades Executed: 18
+  • Execution Rate: 90.0%
+
+================================================================================
+Round 3: Round 3 - 4h 180 days
+================================================================================
+
+📈 Trading Performance:
+  • Total Trades: 11
+  • Win Rate: 27.27%
+  • Profit Factor: 0.40
+  • Total Return: -0.39%
+  • Sharpe Ratio: -7.53
+  • Max Drawdown: -0.65%
+
+💰 Trade Statistics:
+  • Average Win: $8.71
+  • Average Loss: $-8.13
+  • Win/Loss Ratio: 1.07:1
+
+🤖 ML Model Performance:
+  • random_forest:
+    - AUC: 0.5427
+    - Accuracy: 78.80%
+
+🚪 Exit Reasons:
+  • stop_loss: 8 (72.7%)
+  • end_of_backtest: 3 (27.3%)
+
+📡 Signal Statistics:
+  • Signals Generated: 20
+  • Trades Executed: 11
+  • Execution Rate: 55.0%
+
+================================================================================
+Round 4: Round 4 - 1h 365 days
+================================================================================
+
+📈 Trading Performance:
+  • Total Trades: 4
+  • Win Rate: 25.00%
+  • Profit Factor: 0.44
+  • Total Return: -0.13%
+  • Sharpe Ratio: -6.41
+  • Max Drawdown: -0.23%
+
+💰 Trade Statistics:
+  • Average Win: $10.11
+  • Average Loss: $-7.65
+  • Win/Loss Ratio: 1.32:1
+
+🤖 ML Model Performance:
+  • random_forest:
+    - AUC: 0.6230
+    - Accuracy: 98.63%
+
+🚪 Exit Reasons:
+  • stop_loss: 3 (75.0%)
+  • take_profit: 1 (25.0%)
+
+📡 Signal Statistics:
+  • Signals Generated: 8
+  • Trades Executed: 4
+  • Execution Rate: 50.0%
+
+
+================================================================================
+🏆 BEST PERFORMING ROUND
+================================================================================
+
+• Best ML Model (AUC): Round 2 - 1h 180 days
+  AUC: 0.6567
+
+• Best Win Rate: Round 3 - 4h 180 days
+  Win Rate: 27.27%
+
+
+================================================================================
+💡 KEY INSIGHTS
+================================================================================
+
+✅ Strengths:
+  • Best AUC achieved: 0.6567
+  • ML model shows predictive power (AUC > 0.60)
+  • Total trades executed: 34
+
+⚠️  Areas for Improvement:
+  • Average win rate: 18.62% (target: >35%)
+  • Entry timing needs refinement (add confirmation)
+  • All rounds show negative returns (need fixes)
+
+🚀 Next Steps:
+  1. Implement entry confirmation (wait for price action)
+  2. Change label strategy (predict trade outcomes)
+  3. Add SMOTE balancing for training data
+  4. Test with volume and pattern features
+
+================================================================================

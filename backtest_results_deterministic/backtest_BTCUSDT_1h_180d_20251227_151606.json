@@ -1,0 +1,104 @@
+{
+  "symbol": "BTCUSDT",
+  "interval": "1h",
+  "days": 180,
+  "test_date": "20251227_151606",
+  "results": [
+    {
+      "strategy": "Triple Confirmation",
+      "metrics": {
+        "total_trades": 52,
+        "win_rate": 25.0,
+        "profit_factor": 0.67,
+        "total_return_pct": -2.34,
+        "max_drawdown_pct": 3.33,
+        "avg_win": 28.52,
+        "avg_loss": -14.19,
+        "win_loss_ratio": 2.01,
+        "sharpe_ratio": -3.42
+      },
+      "final_capital": 9765.564727264888,
+      "trade_count": 52
+    },
+    {
+      "strategy": "Breakout Retest",
+      "metrics": {
+        "total_trades": 43,
+        "win_rate": 32.56,
+        "profit_factor": 0.82,
+        "total_return_pct": -1.55,
+        "max_drawdown_pct": 2.27,
+        "avg_win": 37.38,
+        "avg_loss": -21.92,
+        "win_loss_ratio": 1.71,
+        "sharpe_ratio": -2.02
+      },
+      "final_capital": 9844.619498849721,
+      "trade_count": 43
+    },
+    {
+      "strategy": "Trend Following MACD",
+      "metrics": {
+        "total_trades": 39,
+        "win_rate": 35.9,
+        "profit_factor": 1.09,
+        "total_return_pct": -0.23,
+        "max_drawdown_pct": 1.17,
+        "avg_win": 13.96,
+        "avg_loss": -7.17,
+        "win_loss_ratio": 1.95,
+        "sharpe_ratio": -0.66
+      },
+      "final_capital": 9977.118488154894,
+      "trade_count": 39
+    },
+    {
+      "strategy": "Bollinger Mean Reversion",
+      "metrics": {
+        "total_trades": 0,
+        "win_rate": 0,
+        "profit_factor": 0,
+        "total_return_pct": 0,
+        "max_drawdown_pct": 0,
+        "avg_win": 0,
+        "avg_loss": 0,
+        "win_loss_ratio": 0,
+        "sharpe_ratio": 0
+      },
+      "final_capital": 10000,
+      "trade_count": 0
+    },
+    {
+      "strategy": "Momentum Scalper",
+      "metrics": {
+        "total_trades": 47,
+        "win_rate": 23.4,
+        "profit_factor": 0.18,
+        "total_return_pct": -2.04,
+        "max_drawdown_pct": 2.05,
+        "avg_win": 3.14,
+        "avg_loss": -5.34,
+        "win_loss_ratio": 0.59,
+        "sharpe_ratio": -13.47
+      },
+      "final_capital": 9795.60757667122,
+      "trade_count": 47
+    },
+    {
+      "strategy": "Smart Money Concepts",
+      "metrics": {
+        "total_trades": 0,
+        "win_rate": 0,
+        "profit_factor": 0,
+        "total_return_pct": 0,
+        "max_drawdown_pct": 0,
+        "avg_win": 0,
+        "avg_loss": 0,
+        "win_loss_ratio": 0,
+        "sharpe_ratio": 0
+      },
+      "final_capital": 10000,
+      "trade_count": 0
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "api": {
+    "base_url": "https://api-contract.weex.com",
+    "key": "YOUR_API_KEY_HERE",
+    "secret": "YOUR_SECRET_KEY_HERE",
+    "passphrase": "YOUR_PASSPHRASE_HERE",
+    "rate_limit_delay": 0.1,
+    "max_retries": 3,
+    "timeout": 30,
+    "locale": "en-US"
+  },
+  "trading": {
+    "symbols": [
+      "cmt_btcusdt",
+      "cmt_ethusdt",
+      "cmt_solusdt",
+      "cmt_dogeusdt",
+      "cmt_xrpusdt",
+      "cmt_adausdt",
+      "cmt_bnbusdt",
+      "cmt_ltcusdt"
+    ],
+    "primary_symbol": "cmt_btcusdt",
+    "timeframes": {
+      "primary": "5m",
+      "secondary": "15m",
+      "trend": "1h"
+    },
+    "default_leverage": 5,
+    "max_leverage": 20,
+    "margin_mode": 1,
+    "order_type": {
+      "limit": "1",
+      "market": "2"
+    },
+    "position_side": {
+      "long": "1",
+      "short": "2"
+    }
+  },
+  "risk": {
+    "max_position_size_usdt": 500,
+    "max_position_size_percent": 10.0,
+    "max_leverage": 20,
+    "min_leverage": 1,
+    "max_open_positions": 3,
+    "max_positions_per_symbol": 1,
+    "stop_loss_percent": 2.0,
+    "take_profit_percent": 5.0,
+    "trailing_stop_percent": 1.5,
+    "max_portfolio_risk_percent": 5.0,
+    "max_daily_loss_percent": 10.0,
+    "cooldown_seconds": 300,
+    "min_account_balance_usdt": 100,
+    "volatility_filter": {
+      "enabled": true,
+      "max_atr_percent": 5.0,
+      "lookback_periods": 14
+    },
+    "correlation_limit": {
+      "enabled": true,
+      "max_correlation": 0.8
+    }
+  },
+  "indicators": {
+    "ema": {
+      "fast_period": 12,
+      "slow_period": 26,
+      "trend_period": 200
+    },
+    "rsi": {
+      "period": 14,
+      "overbought": 70,
+      "oversold": 30
+    },
+    "atr": {
+      "period": 14,
+      "multiplier": 2.0
+    },
+    "bollinger_bands": {
+      "period": 20,
+      "std_dev": 2.0
+    },
+    "macd": {
+      "fast_period": 12,
+      "slow_period": 26,
+      "signal_period": 9
+    },
+    "volume": {
+      "period": 20,
+      "surge_threshold": 1.5
+    }
+  },
+  "signals": {
+    "enable_long": true,
+    "enable_short": true,
+    "min_confidence": 0.6,
+    "require_trend_alignment": true,
+    "require_volume_confirmation": false,
+    "signal_timeout_seconds": 60,
+    "filters": {
+      "min_price_movement": 0.001,
+      "min_volume_usdt": 100000,
+      "max_spread_percent": 0.1
+    }
+  },
+  "ml_model": {
+    "enabled": true,
+    "model_path": "models/trained_model.pkl",
+    "min_confidence": 0.65,
+    "feature_window": 100,
+    "retrain_interval_hours": 24,
+    "use_online_learning": false,
+    "features": [
+      "price_returns",
+      "volume_change",
+      "rsi",
+      "macd",
+      "bollinger_position",
+      "atr_normalized",
+      "ema_diff"
+    ]
+  },
+  "llm": {
+    "enabled": false,
+    "provider": "openai",
+    "model": "gpt-4-turbo-preview",
+    "api_key": "YOUR_LLM_API_KEY_HERE",
+    "temperature": 0.7,
+    "max_tokens": 500,
+    "min_confidence": 0.7,
+    "timeout": 10,
+    "use_as_veto": true,
+    "require_explanation": true,
+    "prompt_template": "You are an expert crypto trader. Analyze this trading signal and provide your decision."
+  },
+  "execution": {
+    "dry_run": true,
+    "enable_paper_trading": false,
+    "order_timeout_seconds": 30,
+    "fill_timeout_seconds": 60,
+    "partial_fill_handling": "accept",
+    "slippage_tolerance_percent": 0.5,
+    "use_limit_orders": true,
+    "limit_order_offset_percent": 0.1,
+    "cancel_unfilled_after_seconds": 120
+  },
+  "data": {
+    "cache_enabled": true,
+    "cache_directory": "data/cache",
+    "cache_ttl_seconds": 60,
+    "historical_data_path": "data/historical",
+    "max_candles_fetch": 1000,
+    "warmup_periods": 200
+  },
+  "logging": {
+    "level": "INFO",
+    "console_output": true,
+    "file_output": true,
+    "json_format": true,
+    "log_directory": "logs",
+    "rotate_logs": true,
+    "max_log_size_mb": 100,
+    "backup_count": 10,
+    "log_components": {
+      "signals": true,
+      "decisions": true,
+      "executions": true,
+      "api_calls": false,
+      "performance": true
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics_interval_seconds": 60,
+    "alert_on_error": false,
+    "alert_on_large_drawdown": true,
+    "drawdown_threshold_percent": 15.0,
+    "email_alerts": false,
+    "telegram_alerts": false
+  },
+  "system": {
+    "loop_interval_seconds": 5,
+    "max_concurrent_tasks": 10,
+    "graceful_shutdown_timeout": 30,
+    "health_check_interval": 60,
+    "auto_restart_on_error": false
+  },
+  "backtest": {
+    "enabled": false,
+    "start_date": "2025-01-01",
+    "end_date": "2025-01-31",
+    "initial_balance": 1000,
+    "commission_rate": 0.0008,
+    "slippage_model": "fixed"
+  }
+}

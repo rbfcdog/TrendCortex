@@ -1,0 +1,2 @@
+entry_time,entry_price,exit_time,exit_price,quantity,pnl,pnl_percent,fees,signal_type,hold_time_hours
+2025-12-10 08:00:00,137.24,2025-12-11,129.39,1.457301078402798,-11.628279371903268,-5.814139685951634,0.18846590644127073,STOP_LOSS,16.0

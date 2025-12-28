@@ -1,0 +1,310 @@
+{
+  "dashboard": {
+    "title": "TrendCortex Trading Bot",
+    "tags": ["trading", "crypto", "trendcortex"],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 1,
+    "refresh": "30s",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Bot Status",
+        "type": "stat",
+        "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "up{job=\"trendcortex\"}",
+            "legendFormat": "Status"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "colorMode": "background",
+          "textMode": "value_and_name"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "mappings": [
+              {"value": 0, "text": "DOWN", "color": "red"},
+              {"value": 1, "text": "UP", "color": "green"}
+            ]
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Uptime",
+        "type": "stat",
+        "gridPos": {"x": 6, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "time() - process_start_time_seconds{job=\"trendcortex\"}",
+            "legendFormat": "Uptime"
+          }
+        ],
+        "options": {
+          "graphMode": "none",
+          "unit": "dtdurations"
+        }
+      },
+      {
+        "id": 3,
+        "title": "Restart Count",
+        "type": "stat",
+        "gridPos": {"x": 12, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "trendcortex_restart_count",
+            "legendFormat": "Restarts"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Error Rate",
+        "type": "stat",
+        "gridPos": {"x": 18, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "rate(trendcortex_errors_total[5m])",
+            "legendFormat": "Errors/sec"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "thresholds": {
+              "steps": [
+                {"value": 0, "color": "green"},
+                {"value": 0.05, "color": "yellow"},
+                {"value": 0.1, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "CPU Usage",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 4, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "trendcortex_cpu_usage_percent",
+            "legendFormat": "CPU %"
+          }
+        ],
+        "yaxes": [
+          {"format": "percent", "max": 100}
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Memory Usage",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 4, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "trendcortex_memory_usage_percent",
+            "legendFormat": "Memory %"
+          }
+        ],
+        "yaxes": [
+          {"format": "percent", "max": 100}
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Trading Performance",
+        "type": "stat",
+        "gridPos": {"x": 0, "y": 12, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "trendcortex_total_trades",
+            "legendFormat": "Total Trades"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Win Rate",
+        "type": "gauge",
+        "gridPos": {"x": 6, "y": 12, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "trendcortex_win_rate_percent",
+            "legendFormat": "Win Rate"
+          }
+        ],
+        "options": {
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "max": 100,
+            "thresholds": {
+              "steps": [
+                {"value": 0, "color": "red"},
+                {"value": 40, "color": "yellow"},
+                {"value": 55, "color": "green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 9,
+        "title": "Daily P&L",
+        "type": "stat",
+        "gridPos": {"x": 12, "y": 12, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "trendcortex_daily_pnl_usd",
+            "legendFormat": "P&L"
+          }
+        ],
+        "options": {
+          "graphMode": "area",
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "currencyUSD",
+            "thresholds": {
+              "steps": [
+                {"value": -1000, "color": "red"},
+                {"value": 0, "color": "yellow"},
+                {"value": 100, "color": "green"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 10,
+        "title": "Open Positions",
+        "type": "stat",
+        "gridPos": {"x": 18, "y": 12, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "trendcortex_open_positions",
+            "legendFormat": "Positions"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Trade Volume (24h)",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 18, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "increase(trendcortex_volume_usd[24h])",
+            "legendFormat": "Volume"
+          }
+        ],
+        "yaxes": [
+          {"format": "currencyUSD"}
+        ]
+      },
+      {
+        "id": 12,
+        "title": "P&L Over Time",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 18, "w": 12, "h": 8},
+        "targets": [
+          {
+            "expr": "trendcortex_cumulative_pnl_usd",
+            "legendFormat": "Cumulative P&L"
+          }
+        ],
+        "yaxes": [
+          {"format": "currencyUSD"}
+        ]
+      },
+      {
+        "id": 13,
+        "title": "API Latency",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 26, "w": 8, "h": 6},
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(trendcortex_api_latency_seconds_bucket[5m]))",
+            "legendFormat": "p95 Latency"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(trendcortex_api_latency_seconds_bucket[5m]))",
+            "legendFormat": "p50 Latency"
+          }
+        ],
+        "yaxes": [
+          {"format": "s"}
+        ]
+      },
+      {
+        "id": 14,
+        "title": "AI Logging Status",
+        "type": "stat",
+        "gridPos": {"x": 8, "y": 26, "w": 8, "h": 6},
+        "targets": [
+          {
+            "expr": "rate(trendcortex_ai_logs_sent_total[5m])",
+            "legendFormat": "Logs/sec"
+          }
+        ],
+        "options": {
+          "graphMode": "area"
+        }
+      },
+      {
+        "id": 15,
+        "title": "Signal Types Distribution",
+        "type": "piechart",
+        "gridPos": {"x": 16, "y": 26, "w": 8, "h": 6},
+        "targets": [
+          {
+            "expr": "sum by (signal_type) (increase(trendcortex_signals_total[24h]))",
+            "legendFormat": "{{signal_type}}"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "title": "Recent Trades",
+        "type": "table",
+        "gridPos": {"x": 0, "y": 32, "w": 24, "h": 8},
+        "targets": [
+          {
+            "expr": "trendcortex_last_trade_info",
+            "format": "table",
+            "instant": true
+          }
+        ],
+        "transformations": [
+          {
+            "id": "organize",
+            "options": {
+              "excludeByName": {
+                "Time": true,
+                "__name__": true
+              },
+              "indexByName": {
+                "symbol": 0,
+                "side": 1,
+                "price": 2,
+                "quantity": 3,
+                "timestamp": 4
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

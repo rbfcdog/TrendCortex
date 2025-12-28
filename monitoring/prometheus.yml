@@ -1,0 +1,46 @@
+# Prometheus configuration for TrendCortex monitoring
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: "trendcortex-monitor"
+    environment: "production"
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+          # - 'alertmanager:9093'
+
+# Load rules once and periodically evaluate them
+rule_files:
+  - "alerts.yml"
+
+# Scrape configurations
+scrape_configs:
+  # TrendCortex bot metrics
+  - job_name: "trendcortex"
+    static_configs:
+      - targets: ["trendcortex:8080"]
+    metrics_path: "/metrics"
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+  # Prometheus self-monitoring
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Node exporter for system metrics (optional)
+  - job_name: "node"
+    static_configs:
+      - targets: []
+        # - 'node-exporter:9100'
+
+  # Docker container metrics (optional)
+  - job_name: "docker"
+    static_configs:
+      - targets: []
+        # - 'cadvisor:8080'

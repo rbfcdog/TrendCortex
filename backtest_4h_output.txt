@@ -1,0 +1,155 @@
+[2025-12-27 14:47:56,819] INFO - Fetching fresh data for BTCUSDT 4h
+[2025-12-27 14:47:56,819] INFO - Fetching BTCUSDT 4h from 2025-06-30 to 2025-12-27
+[2025-12-27 14:47:57,218] INFO - Batch 1: Fetched 1000 candles (up to 2025-12-14 11:59:59.999000)
+[2025-12-27 14:47:57,647] INFO - Batch 2: Fetched 80 candles (up to 2025-12-27 19:59:59.999000)
+[2025-12-27 14:47:57,749] INFO - Successfully fetched 1080 total candles in 2 batches
+[2025-12-27 14:47:57,766] INFO - Saved 1080 rows to /home/rodrigodog/TrendCortex/data/BTCUSDT_4h_20250630_20251227.csv
+[2025-12-27 14:47:57,781] INFO - AI Backtester initialized
+[2025-12-27 14:47:57,781] INFO - Starting AI backtest for BTCUSDT
+[2025-12-27 14:47:57,781] INFO - Using model: random_forest, LLM gate: False
+[2025-12-27 14:47:57,782] INFO - Data split: 742 train, 319 test candles
+[2025-12-27 14:47:57,782] INFO - Training ML models...
+[2025-12-27 14:47:57,820] INFO - Prepared data: 721 rows, 20 features
+[2025-12-27 14:47:57,821] INFO - Train set: 504 rows
+[2025-12-27 14:47:57,821] INFO - Test set: 217 rows
+[2025-12-27 14:47:57,940] INFO - Trained Random Forest model
+[2025-12-27 14:47:58,265] INFO - Trained XGBoost model
+/home/rodrigodog/TrendCortex/.venv/lib/python3.14/site-packages/sklearn/linear_model/_logistic.py:1184: FutureWarning: 'n_jobs' has no effect since 1.8 and will be removed in 1.10. You provided 'n_jobs=-1', please leave it unspecified.
+  warnings.warn(msg, category=FutureWarning)
+[2025-12-27 14:47:58,285] INFO - Trained Logistic Regression model
+[2025-12-27 14:47:58,358] INFO - 
+random_forest Metrics:
+[2025-12-27 14:47:58,358] INFO -   Accuracy: 0.7880
+[2025-12-27 14:47:58,358] INFO -   Precision: 0.2500
+[2025-12-27 14:47:58,359] INFO -   Recall: 0.1389
+[2025-12-27 14:47:58,359] INFO -   F1 Score: 0.1786
+[2025-12-27 14:47:58,359] INFO -   AUC: 0.5427
+[2025-12-27 14:47:58,359] INFO -   Trade Accuracy: 0.2857
+[2025-12-27 14:47:58,359] INFO -   Trades (>0.55): 14/217
+[2025-12-27 14:47:58,426] INFO - 
+xgboost Metrics:
+[2025-12-27 14:47:58,426] INFO -   Accuracy: 0.8203
+[2025-12-27 14:47:58,426] INFO -   Precision: 0.0000
+[2025-12-27 14:47:58,426] INFO -   Recall: 0.0000
+[2025-12-27 14:47:58,426] INFO -   F1 Score: 0.0000
+[2025-12-27 14:47:58,426] INFO -   AUC: 0.5393
+[2025-12-27 14:47:58,426] INFO -   Trade Accuracy: 0.0000
+[2025-12-27 14:47:58,426] INFO -   Trades (>0.55): 2/217
+[2025-12-27 14:47:58,433] INFO - 
+logistic_regression Metrics:
+[2025-12-27 14:47:58,433] INFO -   Accuracy: 0.8295
+[2025-12-27 14:47:58,433] INFO -   Precision: 0.3333
+[2025-12-27 14:47:58,433] INFO -   Recall: 0.0278
+[2025-12-27 14:47:58,433] INFO -   F1 Score: 0.0513
+[2025-12-27 14:47:58,433] INFO -   AUC: 0.5176
+[2025-12-27 14:47:58,433] INFO -   Trade Accuracy: 0.0000
+[2025-12-27 14:47:58,433] INFO -   Trades (>0.55): 2/217
+[2025-12-27 14:47:58,433] INFO - Trained 3 models successfully
+[2025-12-27 14:47:58,434] INFO - random_forest: Accuracy=0.7880, AUC=0.5427
+[2025-12-27 14:47:58,434] INFO - xgboost: Accuracy=0.8203, AUC=0.5393
+[2025-12-27 14:47:58,434] INFO - logistic_regression: Accuracy=0.8295, AUC=0.5176
+[2025-12-27 14:47:58,434] INFO - Generating predictions for 319 test candles...
+[2025-12-27 14:47:58,452] INFO - Prepared data: 299 rows, 20 features
+[2025-12-27 14:47:58,505] INFO - Running backtest loop...
+[2025-12-27 14:47:58,512] INFO - Backtest complete: 20 signals, 11 attempted, 11 executed
+Warning: openai not installed. Install with: uv pip install openai
+================================================================================
+📊 4-HOUR TIMEFRAME BACKTEST
+================================================================================
+
+🎯 Strategy: Test clearer trends with less noise
+  ✓ Timeframe: 4h (was 1h)
+  ✓ Days: 180 (more history)
+  ✓ Prediction threshold: 0.55
+  ✓ Stop loss: 2.5x ATR (wider)
+  ✓ Position size: 2% (conservative)
+
+📊 Fetching 180 days of 4h data...
+✅ Loaded 1080 candles (4h)
+
+📈 Calculating indicators...
+✅ 1061 candles with indicators
+
+🤖 Running 4h backtest...
+
+================================================================================
+AI STRATEGY BACKTEST RESULTS - BTCUSDT
+================================================================================
+
+Configuration:
+  Model: random_forest
+  LLM Gate: Disabled
+  Train/Test Split: 70% / 30%
+  Train Candles: 742
+  Test Candles: 319
+
+ML Performance:
+  Signals Generated: 20
+  Average ML Confidence: 59.40%
+
+Trading Performance:
+  Total Trades: 11
+  Winning Trades: 3
+  Losing Trades: 8
+  Win Rate: 27.27%
+
+Profit & Loss:
+  Total P&L: $-38.89
+  Total Return: -0.39%
+  Average P&L per Trade: $-3.54
+  Average Win: $8.71
+  Average Loss: $-8.13
+  Profit Factor: 0.40
+
+Risk Metrics:
+  Sharpe Ratio: -7.53
+  Max Drawdown: -0.65%
+
+Exit Reasons:
+  stop_loss: 8
+  end_of_backtest: 3
+
+Final Capital: $9,961.11
+Initial Capital: $10,000.00
+Net Profit: $-38.89
+
+================================================================================
+
+================================================================================
+📊 4H vs 1H COMPARISON
+================================================================================
+
+📈 Trading Performance:
+  Trades Executed: 11
+  Win Rate: 27.27%
+  Profit Factor: 0.40
+  Total Return: -0.39%
+
+🔄 vs 1h Timeframe:
+  1h Win Rate: 22.22%
+  4h Win Rate: 27.27%
+  ⚠️  Still below 30% - try ADX filter
+
+🤖 ML Model (4h):
+  Accuracy: 78.80%
+  AUC: 0.5427
+
+🔄 vs 1h ML Performance:
+  1h AUC: 0.6567
+  4h AUC: 0.5427
+  ⚠️  4h AUC dropped - might need more data
+
+💰 Risk/Reward:
+  Average Win: $8.71
+  Average Loss: $8.13
+  Win/Loss Ratio: 1.07:1
+  Breakeven Win Rate: 48.27%
+  ⚠️  Below breakeven - need higher win rate
+
+✅ 4h backtest complete!
+
+🎯 Next Steps:
+1. ⚠️  Still struggling
+2. → Add ADX filter immediately
+3. → Try 1d timeframe (even clearer trends)
+4. → Review feature engineering (add volume)
